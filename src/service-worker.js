@@ -11,7 +11,7 @@ import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import { NetworkFirst, StaleWhileRevalidate } from 'workbox-strategies';
 
 clientsClaim();
 
@@ -20,6 +20,7 @@ clientsClaim();
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST);
+// precacheAndRoute((self.__WB_MANIFEST || []));
 
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
@@ -70,3 +71,28 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+//  /https:\/\/rickandmortyapi.com\/api\/character(?!\/avatar)/,
+registerRoute(
+  /https:\/\/content.guardianapis.com\/search/,
+  new NetworkFirst({
+    cacheName: 'theguardianapis-cache',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 20,
+      }),
+    ],
+  }),
+);
+// "https://media.guim.co.uk/fea0c55d4db7ef11ec9d0743a18f079d2fc021fa/60_0_1800_1080/500.jpg"
+registerRoute(
+  /https:\/\/media\.guim\.co\.uk\/(.+)\.(?:jpeg|jpg)/,
+  new StaleWhileRevalidate({
+    cacheName: 'theguardianmedia-cache',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 20,
+        maxAgeSeconds: 24 * 60 * 60, // 1 week
+      }),
+    ],
+  }),
+);

@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import Basic from 'layouts/Basic'
+import Routes from 'pages'
+import { DataContext } from 'services/DataContext';
+import { serviceApi } from 'services/api'
 
 function App() {
+  const { initial } = React.useContext(DataContext);
+  const [state, updateState ] = useState(initial);
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const params = {
+    "order-by": state.orderBy,
+    "page-size": state.pageSize,
+    "q": state.searchKeywords,
+  }
+  useEffect(() => {
+    // GET request using fetch inside useEffect React hook
+    if (state.loading === true){
+      serviceApi('GET', params)
+        .then(data => updateState( {...state, ...{...{loading:false}, ...data.response}} ));
+    }
+  }, [state])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataContext.Provider value={{ state, updateState}}>
+      <Basic >
+        <Routes />
+      </Basic>
+    </DataContext.Provider>
   );
 }
 

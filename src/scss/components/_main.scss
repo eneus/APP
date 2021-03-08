@@ -1,0 +1,36 @@
+main {
+  position: relative;
+  &.main-content {
+    min-height: 100vh;
+    .page-header {
+      display: flow-root;
+      .btn.wrapper {
+        float: right;
+      }
+      .dropdown.items {
+        float: right;
+        margin-top: .5rem;
+      }
+    }
+  }
+}
+    ul.dropdown.items {
+      list-style: none;
+      height: 32px;
+      display: block;
+      overflow: hidden;
+      border: 1px solid black;
+      max-width: 160px;
+      padding: 0px !important;
+      @include box-shadow($box-shadow-sm, $box-shadow);
+      &:hover {
+        height: auto;
+      }
+      li.item {
+        cursor: pointer;
+        padding: .2rem 1rem !important;
+        &:hover {
+          background-color: $gray-300;
+        }
+      }
+    }

@@ -1,0 +1,46 @@
+header {
+  min-height: 125px;
+  .logo {
+    padding-top: 21px;
+  }
+
+  // Serch Block
+  .search-form {
+    float: right;
+    border-bottom: 2px solid $white;
+    .search-form-input {
+      width: 0px;
+      -webkit-transition: width .3s;
+      -moz-transition: width .3s;
+      -ms-transition: width .3s;
+      -o-transition: width .3s;
+      transition: width .3s;
+      input[type=text] {
+        background-color: transparent !important;
+        color: $white;
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: rgba(255,255,255, .6) !important;
+          opacity: 1; /* Firefox */
+        }
+      }
+    }
+    .btn.open {
+      display: block;
+    }
+    button.btn {
+      display: none;
+    }
+    &.active {
+      background-color: rgba(255,255,255, .3) !important;
+      .search-form-input {
+        width: 180px;
+      }
+      .btn.open {
+        display: none;
+      }
+      button.btn {
+        display: block;
+      }
+    }
+  }
+}
