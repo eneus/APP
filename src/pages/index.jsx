@@ -10,7 +10,7 @@ function Routes() {
   return (
     <Router>
       <Switch>
-        <Route exact path={Home.path} component={() => <Home.component /> } />
+        <Route exact path={Home.path} component={Home.component} />
         {/* Build Route components from routeSettings */
         [
           Search,

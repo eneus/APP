@@ -19,13 +19,13 @@ function HomePage() {
     if (state.results.find( item => item.id === location.pathname.substring(1) ) ){
       setArticle(state.results.find( item => item.id === location.pathname.substring(1) ))
     }
-  }, [state])
+  }, [location.pathname, state])
 
   useEffect(() => {
     if (localbookmarks && localbookmarks.find( item => item.id === location.pathname.substring(1))){
       setMarked(true)
     }
-  }, [marked])
+  }, [localbookmarks, location.pathname, marked])
 
   useEffect(() => {
     if (localbookmarks){
@@ -34,6 +34,7 @@ function HomePage() {
           .then(data => setArticle( data.response.content ));
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (state.loading || !article) {
@@ -68,7 +69,7 @@ function HomePage() {
     <div className="single article">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{article.webTitle} | Seven Peaks Test task</title>
+        <title>{article.webTitle} | ReactJS Context Example (content.guardianapis.com)</title>
         <meta name="description" content={article.webTitle} />
       </Helmet>
       <div className="page-header">

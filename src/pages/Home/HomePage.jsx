@@ -17,8 +17,8 @@ function HomePage() {
     <div className="home">
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Home page | Seven Peaks Test task</title>
-          <meta name="description" content="Seven Peaks Test task" />
+          <title>Home page | ReactJS Context Example (content.guardianapis.com)</title>
+          <meta name="description" content="ReactJS Context Example (content.guardianapis.com)" />
         </Helmet>
       <div className="page-header">
         <PageTitle title="Top Stories" />

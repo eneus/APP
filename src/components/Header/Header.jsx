@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from 'assets/Logo-white.png';
+import logo from 'assets/logo.svg';
 import { SearchBlock } from 'components'
 
 function Header() {
@@ -9,7 +9,7 @@ function Header() {
         <nav className="navbar navbar-dark">
           <div className="logo">
             <a href="/" title="Home" alt="Home Page">
-              <img src={logo} className="7Peaks-logo" alt="Seven Peaks" />
+              <img src={logo} className="ReactJS-logo" alt="Context Example (content.guardianapis.com)" />
             </a>
           </div>
         </nav>

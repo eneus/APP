@@ -10,8 +10,8 @@ function BookmarksPage() {
     <div className="bookmarks">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>All Bookmarks | Seven Peaks Test task</title>
-        <meta name="description" content="Seven Peaks Test task bookmarks page" />
+        <title>All Bookmarks | ReactJS Context Example (content.guardianapis.com)</title>
+        <meta name="description" content="ReactJS Context Example (content.guardianapis.com) Bookmarks page" />
       </Helmet>
       <div className="page-header">
         <PageTitle title="All bookmark" />

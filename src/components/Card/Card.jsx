@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import logo from 'assets/Logo-white.png';
+import logo from 'assets/logo.svg';
 
 function Card({ id, webTitle, sectionId, fields }) {
   var styles = "card col-md-4 " + sectionId;

@@ -1,4 +1,3 @@
-import _ from 'lodash'
 // Helper for api errors
 import { handleApiErrors } from './handleApiErrors'
 
@@ -40,15 +39,16 @@ export async function serviceApi( method, params, id ) {
   } 
   var param = objToQueryString( params );
 
-  // if (params) {
-    if (!id){
-      requestUrl.push('search');
-    }
-    requestUrl.push(param);
-  // } 
+  // console.log(params)
+
+  if (!id){
+    requestUrl.push('search');
+  }
+  requestUrl.push(param);
+  
 
   var fetchUrl = requestUrl.join('');
-
+ 
   return await fetch(fetchUrl, queryHead)
     .then(handleApiErrors)
     .then(response => response.json())

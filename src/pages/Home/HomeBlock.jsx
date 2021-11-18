@@ -1,5 +1,5 @@
-import React, {useContext, useState, useEffect} from 'react';
-import { DataContext } from "services/DataContext";
+import React, { useState, useEffect } from 'react';
+// import { DataContext } from "services/DataContext";
 import { Loading, Card } from "components";
 import { serviceApi } from 'services/api'
 
@@ -19,6 +19,7 @@ function HomeBlock() {
     serviceApi('GET', params)
     .then(data => setBlocknews( data.response ));
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (blocknews.length === 0) {

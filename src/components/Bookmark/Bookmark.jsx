@@ -1,6 +1,6 @@
 import React from 'react';
 import IconOn from 'assets/bookmarkon-icon@2x.svg';
-import IconOff from 'assets/bookmarkoff-icon@2x.svg';
+// import IconOff from 'assets/bookmarkoff-icon@2x.svg';
 
 function Bookmark({ text, hendleClick }) {
   return (

@@ -1,7 +1,14 @@
 header {
   min-height: 125px;
   .logo {
-    padding-top: 21px;
+    a {
+      img {
+        height: 100%;
+        width: auto;
+      }
+      display: block;
+      height: 71px;
+    }
   }
 
   // Serch Block

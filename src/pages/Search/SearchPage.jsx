@@ -6,8 +6,8 @@ function SearchPage() {
     <div>
     <Helmet>
       <meta charSet="utf-8" />
-      <title>Search page | Seven Peaks Test task</title>
-      <meta name="description" content="Seven Peaks Test task bookmarks page" />
+      <title>Search page | ReactJS Context Example (content.guardianapis.com)</title>
+      <meta name="description" content="ReactJS Context Example (content.guardianapis.com) bookmarks page" />
     </Helmet>
       Search Page
     </div>
