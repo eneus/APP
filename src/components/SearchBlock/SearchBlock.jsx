@@ -9,6 +9,7 @@ function SearchBlock() {
   const { state, updateState } = useContext(DataContext);
   const [activeSearch, setActiveSearch] = useState(false);
   const wrapperRef = useRef(null);
+
   const {
     values,
     handleSubmit,
@@ -17,7 +18,7 @@ function SearchBlock() {
     errors,
   } = useFormik({
     initialValues: {
-      searchKeywords: state.searchKeywords
+      searchKeywords: state.params.q
     },
     validationSchema: Yup.object().shape({
       searchKeywords: Yup.string()
@@ -25,10 +26,12 @@ function SearchBlock() {
         .required("Required")
     }),
     onSubmit(values) {
+      console.log(values)
       updateState({...state, ...{searchKeywords:values.searchKeywords, loading:true}} )
+      updateState({...state, ...{params:{...state.params, q:values.searchKeywords}, loading:true}} )
     },
   });
-  
+  console.log(state.params)
   useOutsideHandler(wrapperRef, activeSearch, setActiveSearch, values.searchKeywords);
 
   var formClasses = activeSearch ? "search-form active" : "search-form"

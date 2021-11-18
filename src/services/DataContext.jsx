@@ -11,7 +11,7 @@ export const initialState = {
   params: {
     "order-by": "newest",
     "page-size": 8,
-    "q": "",
+    q: "",
   },
   results: [],
 }
