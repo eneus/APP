@@ -26,12 +26,11 @@ function SearchBlock() {
         .required("Required")
     }),
     onSubmit(values) {
-      console.log(values)
-      updateState({...state, ...{searchKeywords:values.searchKeywords, loading:true}} )
+      
       updateState({...state, ...{params:{...state.params, q:values.searchKeywords}, loading:true}} )
     },
   });
-  console.log(state.params)
+  
   useOutsideHandler(wrapperRef, activeSearch, setActiveSearch, values.searchKeywords);
 
   var formClasses = activeSearch ? "search-form active" : "search-form"
